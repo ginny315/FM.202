@@ -1,26 +1,38 @@
-// require('css-loader!normalize.css');
-// require('normalize');
 import Vue from 'vue';
-// import VueRouter from 'vue-router';
+import VueRouter from 'vue-router';
 // import VueResource from 'vue-resource';
 // import { configRouter } from './configRouter';
 import App from './App';
 
-// Vue.use(VueRouter);
+Vue.use(VueRouter);
 // Vue.use(VueResource);
 
-// const router = new VueRouter({
-//   history: true,
-//   saveScrollPosition: true,
-// });
-
-// configRouter(router);
-const v = new Vue({
-  el: 'body',
-  components: { App },
+const Foo = Vue.extend({
+  template: '<p>This is foo!</p>',
+});
+const Bar = Vue.extend({
+  template: '<p>This is bar!</p>',
 });
 
-export default v;
+const router = new VueRouter({
+  history: true,
+  saveScrollPosition: true,
+});
 
-// const app = Vue.extend(App);
-// router.start(app, '#app');
+// configRouter(router);
+// const v = new Vue({
+//   el: 'body',
+//   components: { App },
+// });
+
+router.map({
+  '/foo': {
+    component: Foo,
+  },
+  '/bar': {
+    component: Bar,
+  },
+});
+router.start(App, '#app');
+
+// export default v;

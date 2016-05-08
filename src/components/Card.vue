@@ -3,17 +3,17 @@
   <div class="card-container"> 
   <figure>
     <img :src="imgSrc" />
-    <img class="logo" src="../assets/image/ginny.jpg">
   </figure>
   </div>
 </div>
 </template>
 
 <script>
+const ginny = import('../assets/image/ginny.jpg');
 export default {
   data() {
     return {
-      imgSrc: '../assets/image/ginny.jpg',
+      imgSrc: ginny,
     };
   },
 };
@@ -28,5 +28,10 @@ $vueColor: #42b983;
 }
 .card-container {
   width:70%;
+}
+figure {
+  img{
+    width:100%;
+  }
 }
 </style>
