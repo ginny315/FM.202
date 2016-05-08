@@ -9,7 +9,7 @@
 </template>
 
 <script>
-const ginny = import('../assets/image/ginny.jpg');
+const ginny = require('../assets/image/ginny.jpg');
 export default {
   data() {
     return {
@@ -21,13 +21,22 @@ export default {
 
 <style lang="scss" scoped >
 $vueColor: #42b983;
+@mixin border($width:1px,$color:#000){
+  border: $width solid $color;
+}
+
+figure {
+  //margin: 0;
+}
 .card {
   width:100%;
-  background-color:#000;
+  //background-color:#000;
   height:100%;
 }
 .card-container {
-  width:70%;
+  //width:70%;
+  padding: 0 15%;
+  @include border;
 }
 figure {
   img{
