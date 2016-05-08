@@ -59,6 +59,17 @@ module.exports = {
         loader: 'vue-html'
       },
       {
+        test: /\.css$/,
+        loaders: ['style', 'css']
+      },
+      /**
+       * add sass－loader
+      */
+      // {
+      //   test: /\.scss$/,
+      //   loaders: ['style', 'css', 'sass']
+      // },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url',
         query: {
@@ -81,5 +92,5 @@ module.exports = {
   },
   vue: {
     loaders: utils.cssLoaders()
-  }
+  },
 }
