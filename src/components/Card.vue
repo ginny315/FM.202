@@ -1,11 +1,55 @@
+<style lang="scss" scoped >
+$vueColor: #42b983;
+$fontS12: 1.2rem;
+@mixin border($width:1px,$color:#000){
+  border: $width solid $color;
+}
+
+.card-container {
+  padding: 10% ;
+  //@include border;
+  font-size: 0;
+  position: relative;
+  z-index:10;
+}
+figure {
+  position: relative;
+  z-index: 9;
+  img{
+    width:100%;
+  }
+}
+.word-wrap {
+  font-size:$fontS12;
+  color:$vueColor;
+  padding-top:$fontS12;
+  span:nth-child(2) {
+    float:right;
+  }
+}
+.word-desc {
+  padding-top:2*$fontS12;
+  font-size: $fontS12;
+  line-height: $fontS12*1.2;
+  color: #ccc;
+}
+</style>
+
 <template>
-<div class="card">
+
   <div class="card-container"> 
-  <figure>
+  <figure class="img-wrap">
     <img :src="imgSrc" />
   </figure>
+  <div class="word-wrap">
+    <span>{{tag}}</span>
+    <span>{{nickname}}</span>
   </div>
-</div>
+  <div class="word-desc">
+    <span>{{desc}}</span>
+  </div>
+  </div>
+
 </template>
 
 <script>
@@ -14,33 +58,10 @@ export default {
   data() {
     return {
       imgSrc: ginny,
+      tag: 'FM.202-2',
+      nickname: '过胖',
+      desc: '过胖，202体重佼佼者，减肥4年未成功，生性乐观，随口一说就是段子。从单身狗到资深单身狗。',
     };
   },
 };
 </script>
-
-<style lang="scss" scoped >
-$vueColor: #42b983;
-@mixin border($width:1px,$color:#000){
-  border: $width solid $color;
-}
-
-figure {
-  //margin: 0;
-}
-.card {
-  width:100%;
-  //background-color:#000;
-  height:100%;
-}
-.card-container {
-  //width:70%;
-  padding: 0 15%;
-  @include border;
-}
-figure {
-  img{
-    width:100%;
-  }
-}
-</style>
