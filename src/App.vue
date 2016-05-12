@@ -53,6 +53,7 @@ a {
 }
 ul {
   width: 600%;
+  transform:translateX(2%);
 }
 li {
   width: 14%;
@@ -82,8 +83,8 @@ li {
     <Myheader></Myheader>
     </div>
     <div class="card-wrap">
-    <ul v-touch:swipeleft="onSwipeLeft">
-      <li :class="{ 'card-focus': item.isCF}" v-for="item in cardlist" track-by="_id"><card></card></li>
+    <ul v-touch:swipeleft="onSwipeLeft" v-touch:swiperight="onSwipeRight" :style="styleObj">
+      <li :class="{ 'card-focus': item.isCF , 'card-nf' : !item.isCF}" v-for="item in cardlist" track-by="_id"><card></card></li>
     </ul>
     </div>
   </div>
@@ -93,6 +94,7 @@ li {
 import Card from './components/Card';
 import Myheader from './components/Myheader';
 
+let cnt = 0;
 export default {
   components: {
     Card,
@@ -100,13 +102,32 @@ export default {
   },
   data() {
     return {
-      cardlist: [{ _id: 1, isCF: true }, { _id: 2 }, { _id: 3 },
-       { _id: 4 }, { _id: 5 }, { _id: 6 }],
+      cardlist: [{ _id: 1, isCF: true }, { _id: 2, isCF: false }, { _id: 3, isCF: false },
+       { _id: 4, isCF: false }, { _id: 5, isCF: false }, { _id: 6, isCF: false }],
+      styleObj: {
+        translate: 'transform 1s',
+        transform: 'translate3d(2%, 0, 0)',
+      },
     };
   },
   methods: {
     onSwipeLeft() {
-      console.log(this.cardlist[1].isCF);
+      if (cnt !== 5) {
+        this.cardlist[cnt].isCF = false;
+        cnt++;
+        this.cardlist[cnt].isCF = true;
+        const transTemp = 2 - cnt * 16;
+        this.styleObj.transform = `translate3d(${transTemp}%, 0, 0)`;
+      }
+    },
+    onSwipeRight() {
+      if (cnt !== 0) {
+        this.cardlist[cnt].isCF = false;
+        cnt--;
+        this.cardlist[cnt].isCF = true;
+        const transTemp = 2 - cnt * 16;
+        this.styleObj.transform = `translateX(${transTemp}%, 0, 0)`;
+      }
     },
   },
 };
