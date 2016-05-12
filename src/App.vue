@@ -105,7 +105,7 @@ export default {
       cardlist: [{ _id: 1, isCF: true }, { _id: 2, isCF: false }, { _id: 3, isCF: false },
        { _id: 4, isCF: false }, { _id: 5, isCF: false }, { _id: 6, isCF: false }],
       styleObj: {
-        translate: 'transform 1s',
+        transition: 'transform .3s',
         transform: 'translate3d(2%, 0, 0)',
       },
     };
@@ -126,7 +126,7 @@ export default {
         cnt--;
         this.cardlist[cnt].isCF = true;
         const transTemp = 2 - cnt * 16;
-        this.styleObj.transform = `translateX(${transTemp}%, 0, 0)`;
+        this.styleObj.transform = `translate3d(${transTemp}%, 0, 0)`;
       }
     },
   },
