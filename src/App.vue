@@ -95,15 +95,27 @@ import Card from './components/Card';
 import Myheader from './components/Myheader';
 
 let cnt = 0;
+let cardlist;
 export default {
   components: {
     Card,
     Myheader,
   },
+  // init() {
+  //   this.$http({ url: 'member.json', method: 'GET' })
+  // .then(res => (this.$set(cardlist,JSON.stringify(res.data))));
+  // },
   data() {
+    cardlist = [{ _id: 1, isCF: true }, { _id: 2, isCF: false }, { _id: 3, isCF: false },
+       { _id: 4, isCF: false }, { _id: 5, isCF: false }, { _id: 6, isCF: false }];
+    // console.log(cardlist);
+    /**
+     * 启用模拟数据
+    */
+    // this.$http({ url: 'member.json', method: 'GET' })
+    // .then(res => (this.$set(cardlist, JSON.stringify(res.data))));
     return {
-      cardlist: [{ _id: 1, isCF: true }, { _id: 2, isCF: false }, { _id: 3, isCF: false },
-       { _id: 4, isCF: false }, { _id: 5, isCF: false }, { _id: 6, isCF: false }],
+      cardlist,
       styleObj: {
         transition: 'transform .3s',
         transform: 'translate3d(2%, 0, 0)',

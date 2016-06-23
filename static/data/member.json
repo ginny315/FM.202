@@ -1,0 +1,6 @@
+{
+	"code": 200,
+	"msg": "ok",
+	"data": [{ _id: 1, isCF: true }, { _id: 2, isCF: false }, { _id: 3, isCF: false },
+       { _id: 4, isCF: false }, { _id: 5, isCF: false }, { _id: 6, isCF: false }],
+}

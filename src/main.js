@@ -40,8 +40,10 @@ router.map({
 });
 
 // VueResource config
-Vue.http.options.root = '/data/';
+Vue.http.options.root = 'static/data';
 Vue.http.options.emulateJSON = true;
+// Vue.http.headers.common['Access-Control-Allow-Origin'] = '*';
+// Vue.http.options.xhr = { 'http://localhost:8000': true };
 
 router.start(App, '#app');
 
